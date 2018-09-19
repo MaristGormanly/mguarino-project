@@ -1,0 +1,19 @@
+{
+  "name": "mguarino-project",
+  "version": "1.0.0",
+  "description": "Package",
+  "main": "\u001b[D\u001b[D\u001b[D\u001boregonTrail.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaristGormanly/mguarino-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaristGormanly/mguarino-project/issues"
+  },
+  "homepage": "https://github.com/MaristGormanly/mguarino-project#readme"
+}
