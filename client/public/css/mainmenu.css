@@ -1,0 +1,24 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	background-color: black;
+}
+h1 {
+	color: white;
+}
+h2 {
+	text-decoration: underline;
+	color: white;
+}
+h3 {
+	font-style: italic;
+	color: white;
+}
+li {
+	font-size: 16pt;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: white;
+}

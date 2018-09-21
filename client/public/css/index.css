@@ -1,9 +1,18 @@
-@import "compass/css3";
+
 @keyframes fade {
 	from {opacity: 0.05;}
 	from {font-size: 16pt;}
 }
 body {
+	height: 100%;
+	background-color: black;
+}
+#bg {
+	height: 100%;
+	background-image: url("/images/wildwest.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,11 +20,12 @@ body {
 #header {
 	order: 1;
 	width: 100%;
-	background-color: lightgray;
+	background-color: #F9F9F9;
 	display: flex;
 	justify-content: center;
 	padding-bottom: 20px;
 	padding-top: 20px;
+	border-radius: 4px;
 }
 #bodyContent {
 	width: 100%;
@@ -24,8 +34,6 @@ body {
  	flex-direction: column;
  	align-items: center;
  	padding-top:5px;
- 	background: rgb(242,220,144);
-	background: linear-gradient(90deg, rgba(242,220,144,0.8071603641456583) 0%, rgba(255,183,120,1) 35%, rgba(255,245,208,1) 62%);
 }
 h1 {
 
