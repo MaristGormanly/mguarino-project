@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MaristGormanly/mguarino-project/issues"
   },
-  "homepage": "https://github.com/MaristGormanly/mguarino-project#readme"
+  "homepage": "https://github.com/MaristGormanly/mguarino-project#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
