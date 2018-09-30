@@ -8,16 +8,9 @@ h1 {
 	color: white;
 	text-decoration: underline;
 }
-table {
-	width: 40%;
+p {
 	color: white;
-	font-size: 18pt;
-}
-th, td {
-	padding: 10px;
-}
-th {
-	text-align: left;
+	font-size: 15pt;
 }
 h2 {
 	color: white;
