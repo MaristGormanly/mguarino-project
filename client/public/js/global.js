@@ -4,3 +4,17 @@ var text = function fadeText() {
 	$("#fadetext").fadeIn(500);
 }
 setInterval(text, 1500);
+
+
+
+
+
+/*var music = function playMusic() {
+	var audio = new Audio('/music/ScapeMain.mp3');
+	audio.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+	});
+	audio.play();
+}*/
+

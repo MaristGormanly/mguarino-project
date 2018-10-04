@@ -8,8 +8,8 @@ function Player(playerName, playerScore, playerDate) {
 	this.score = playerScore;
 	this.date = playerDate;
 }
-var mike = new Player("mike", 9999999, "6/12/15");
-var duncan = new Player("duncan", -10, "4/5/16");
+var mike = new Player("mike", 9999999999, "6/12/15");
+var duncan = new Player("Buncan", -10, "4/5/16");
 var bongo = new Player("bongo", 5000, "5/5/17");
 var chimpus = new Player("chimpus", 11000, "1/1/11");
 var zonk = new Player("zonk", 1500, "9/3/14");
@@ -23,7 +23,7 @@ var playerList = [mike, duncan, bongo, chimpus, zonk, chaz, chris, sam, zippy, y
 
 
 playerList.sort((a,b) => b.score - a.score).forEach((Player, ind) => {
-	$("#list").append(`${ind + 1} ) ${Object.values(Player).join(" ")} <br />`);
+	$("#list").append(`${ind + 1}) ${Object.values(Player).join(" | ")} <br />`);
 })
 
 
