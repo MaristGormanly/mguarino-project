@@ -17,8 +17,11 @@ h3 {
 	color: white;
 }
 li {
-	font-size: 16pt;
+	font-size: 20pt;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	color: white;
+}
+#party {
+	color: black;
 }

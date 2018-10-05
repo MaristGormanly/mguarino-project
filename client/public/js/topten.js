@@ -8,7 +8,7 @@ function Player(playerName, playerScore, playerDate) {
 	this.score = playerScore;
 	this.date = playerDate;
 }
-var mike = new Player("mike", 9, "6/12/15");
+var mike = new Player("mike", 999999, "6/12/15");
 var duncan = new Player("Buncan", -10, "4/5/16");
 var bongo = new Player("bongo", 5000, "5/5/17");
 var chimpus = new Player("chimpus", 11000, "1/1/11");

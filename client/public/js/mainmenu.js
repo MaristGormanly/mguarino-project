@@ -1,3 +1,4 @@
+partyCheck = false;
 document.addEventListener("keydown", function(event) {
 	if(event.keyCode == 51) {
 		window.location = "topten"
@@ -5,3 +6,4 @@ document.addEventListener("keydown", function(event) {
 		window.location = "trail"
 	}
 })
+
