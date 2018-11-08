@@ -3,6 +3,16 @@ const app = express()
 app.use(express.static('client/public'));
 const port = 1337
 
+var topTen = require('./controllers/topTenController');
+
+app.route('/api/topTen')
+	.get(topTen.getCurrentScores);
+
+var gameData = require('./controllers/gameController');
+
+app.route('/api/gameData')
+	.get(gameData.getGameData);
+
 app.get('/', function (req, res) {
 	res.sendFile('index.html', {root: './client/views'})
 });
