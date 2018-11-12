@@ -11,7 +11,7 @@ function gameData(inNames, inStatus, inProfession, inMoney, inMonth, inTraveled,
     this.milesTraveled = 0;
     this.groupHealth = 100;
     this.currentPace = pace.getAllPaces()[0];
-    this.daysOnTrail = 44;
+    this.daysOnTrail = 0;
     this.currentWeather = weather.getRandomWeather();
     this.currentTerrain = terrain.getTerrain();
     this.messages = "ass";
