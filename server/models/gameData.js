@@ -1,16 +1,20 @@
+var pace = require('./pace');
+var terrain = require('./terrain');
+var weather = require('./weather');
+
 function gameData(inNames, inStatus, inProfession, inMoney, inMonth, inTraveled, inHealth, inPace, inDays, inWeather, inTerrain, inMessage) {
-    this.playerNames = [null,null,null,null,null];
+    this.playerNames = ["","","","",""];
     this.playerStatus = [false,false,false,false,false];
-    this.playerProfession = null;
+    this.playerProfession = "";
     this.playerMoney = 0;
-    this.startMonth = null;
+    this.startMonth = "";
     this.milesTraveled = 0;
     this.groupHealth = 100;
-    this.currentPace = null;
+    this.currentPace = pace.getAllPaces()[0];
     this.daysOnTrail = 0;
-    this.currentWeather = null;
-    this.currentTerrain = null;
-    this.messages = "bop";
+    this.currentWeather = weather.getRandomWeather();
+    this.currentTerrain = terrain.getTerrain();
+    this.messages = "ass";
 }
 
 exports.getData = function() {

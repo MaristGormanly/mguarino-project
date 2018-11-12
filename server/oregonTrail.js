@@ -13,6 +13,12 @@ var gameData = require('./controllers/gameController');
 app.route('/api/gameData')
 	.get(gameData.getGameData);
 
+app.route('/api/gameUpdate')
+	.get(gameData.updateGameData);
+
+app.route('/api/resetGame')
+	.get(gameData.resetGameData);
+
 app.get('/', function (req, res) {
 	res.sendFile('index.html', {root: './client/views'})
 });
