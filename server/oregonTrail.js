@@ -19,6 +19,19 @@ app.route('/api/gameUpdate')
 app.route('/api/resetGame')
 	.get(gameData.resetGameData);
 
+app.get('/plains', function (req, res) {
+	res.sendFile('plains.png', {root: 'client/public/images'})
+})
+app.get('/mountains', function (req, res) {
+	res.sendFile('mountains.png', {root: 'client/public/images'})
+})
+app.get('/forest', function (req, res) {
+	res.sendFile('forest.png', {root: 'client/public/images'})
+})
+app.get('/desert', function (req, res) {
+	res.sendFile('desert.png', {root: 'client/public/images'})
+})
+
 app.get('/', function (req, res) {
 	res.sendFile('index.html', {root: './client/views'})
 });
