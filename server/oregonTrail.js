@@ -19,6 +19,8 @@ app.route('/api/gameUpdate')
 app.route('/api/resetGame')
 	.get(gameData.resetGameData);
 
+
+	
 app.get('/plains', function (req, res) {
 	res.sendFile('plains.png', {root: 'client/public/images'})
 })
