@@ -8,19 +8,46 @@ var topTen = require('./controllers/topTenController');
 app.route('/api/topTen')
 	.get(topTen.getCurrentScores);
 
+var setup = require('./controllers/setupController');
+
+app.route('/api/setProfession/:id')
+	.post(setup.setProfession);
+
+app.route('/api/setPlayerNames/:names')
+	.post(setup.setPlayerNames);
+
+app.route('/api/setStartMonth/:id')
+	.post(setup.setStartMonth);
+
 var gameData = require('./controllers/gameController');
 
-app.route('/api/gameData')
+app.route('/api/data')
 	.get(gameData.getGameData);
 
-app.route('/api/gameUpdate')
+app.route('/api/update')
 	.get(gameData.updateGameData);
 
-app.route('/api/resetGame')
+app.route('/api/reset')
 	.get(gameData.resetGameData);
 
+app.route('/api/setPace/pace/:id')
+	.post(gameData.setPace);
 
-	
+app.route('/api/getPace/pace')
+	.get(gameData.getPace);
+
+/*	
+app.route('/api/getProfession/profession')
+	.get(gameData.currentData.playerProfession);
+
+app.route('/api/getPlayerNames/player')
+	.get(setup.setPlayerNames);
+
+app.route('/api/getStartMonth/month')
+	.get(setup.setStartMonth);
+*/
+
+/*	
 app.get('/plains', function (req, res) {
 	res.sendFile('plains.png', {root: 'client/public/images'})
 })
@@ -33,6 +60,7 @@ app.get('/forest', function (req, res) {
 app.get('/desert', function (req, res) {
 	res.sendFile('desert.png', {root: 'client/public/images'})
 })
+*/
 
 app.get('/', function (req, res) {
 	res.sendFile('index.html', {root: './client/views'})

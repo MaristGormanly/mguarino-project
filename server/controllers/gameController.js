@@ -65,10 +65,10 @@ exports.getPace = function(req, res) {
 }
 
 exports.setPace = function(req, res) {
-    console.log("Change pace to: " + req.body.pace);
-    exports.currentData.currentPace = pace.getAllPaces()[req.body.pace];
+    console.log("Changed pace to: " + pace.getAllPaces()[req.params.id].name);
+    exports.currentData.currentPace = pace.getAllPaces()[req.params.id];
     res.setHeader('Content-Type', 'application/json');
-    res.send(exports.currentData);
+    res.send(exports.currentData.currentPace);
 }
 
 exports.resetGameData = function(req, res) {

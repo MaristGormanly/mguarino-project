@@ -11,5 +11,5 @@ allPaces.push(new pace("Grueling", 30, -8));
 allPaces.push(new pace("Resting", 0, 5));
 
 exports.getAllPaces = function() {
-    return(allPaces);
+    return allPaces;
 }
