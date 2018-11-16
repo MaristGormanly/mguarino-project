@@ -19,6 +19,9 @@ app.route('/api/setPlayerNames/:names')
 app.route('/api/setStartMonth/:id')
 	.post(setup.setStartMonth);
 
+app.route('/api/setup/firstScreen')
+	.get(setup.getSetupScreen);
+	
 var gameData = require('./controllers/gameController');
 
 app.route('/api/data')
