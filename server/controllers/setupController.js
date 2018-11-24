@@ -37,9 +37,12 @@ var screen1 = "<p>Choose your life:</p>"
     + "</ol>"
     + "<div id=\"selectedOption\" >Which would you like to choose?</div>";
 
+var screen2 = "<p>Enter your wagon leader's name</p>"
+    
 exports.setupScreens.push(screen1);
+exports.setupScreens.push(screen2);
 
 exports.getSetupScreen = function(req, res) {
     res.setHeader('Content-Type', 'text/html');
-    res.send(exports.setupScreens[0]);
+    res.send(exports.setupScreens[req.params.id]);
 }

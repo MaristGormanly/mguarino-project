@@ -19,8 +19,19 @@ app.route('/api/setPlayerNames/:names')
 app.route('/api/setStartMonth/:id')
 	.post(setup.setStartMonth);
 
-app.route('/api/setup/firstScreen')
+app.route('/api/setup/:id')
 	.get(setup.getSetupScreen);
+
+app.route('/api/setData/:id') 
+	.post((req) => {
+		switch(req.params.id) {
+			case 1: setup.setProfession();
+					break;
+			case 2: setup.setPlayerNames();
+					break;
+			case 3: setup.setStartMonth();
+		}//switch
+	});	
 	
 var gameData = require('./controllers/gameController');
 
