@@ -7,7 +7,7 @@
 var gameContainer = document.getElementById('setupContent');
 var currentScreen = 0;
 document.onload(loadNextScreen(currentScreen))
-document.getElementById('submit').addEventListener('click', saveData)
+document.getElementById('submit').addEventListener('click', saveData())
 
 function loadNextScreen(currentScreen) {
 	fetch('/api/setup/'+currentScreen).then(function(res) {
@@ -20,7 +20,14 @@ function loadNextScreen(currentScreen) {
 
 function saveData() {
 	var data = document.getElementById('selection').value;
-	fetch('/api/setData/'+currentScreen).then(function(res) {
-		
+	fetch('/api/setData/'+currentScreen, {
+		method: 'post',
+		headers: {'Content-Type': 'application/json'}
+	}).then(json).then(function(data) {
+		console.log('success', data);
 	})
+	.catch(function(error) {
+		console.log('failed', error);
+	});
+	loadNextScreen(currentScreen);
 }

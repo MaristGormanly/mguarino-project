@@ -35,7 +35,11 @@ var screen1 = "<p>Choose your life:</p>"
     + "<li id=\"farmerChoice\" >Be a farmer from Illinois</li>"
     + "<li id=\"differencesChoice\" >Find out the differences</li>"
     + "</ol>"
-    + "<div id=\"selectedOption\" >Which would you like to choose?</div>";
+    + "<p id=\"selectedOption\" >Which would you like to choose?</p>"
+    + "<form action=\"/api/setData/0\" method=\"POST\">"
+    + "<input type = \"text\" id = \"selection\">"
+    + "<input type = \"button\" id = \"submit\" value = \"Submit\">"
+    + "</form>";
 
 var screen2 = "<p>Enter your wagon leader's name</p>"
     
