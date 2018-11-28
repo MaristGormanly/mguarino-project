@@ -5,29 +5,26 @@
 })
 */
 var gameContainer = document.getElementById('setupContent');
-var currentScreen = 0;
-document.onload(loadNextScreen(currentScreen))
-document.getElementById('submit').addEventListener('click', saveData())
+loadNextScreen(0);
+var currentScreen = 1;
+document.getElementById('submit').addEventListener('click', 
+	function() {
+		saveData(currentScreen);
+		currentScreen++;
+	}
+);
 
-function loadNextScreen(currentScreen) {
-	fetch('/api/setup/'+currentScreen).then(function(res) {
+function loadNextScreen(newScreen) {
+	fetch('/api/setup/'+newScreen).then(function(res) {
 		res.text().then(function(data) {
 			gameContainer.innerHTML = data;
 		});
 	});
-	currentScreen++;
+	console.log(newScreen)
 };
 
-function saveData() {
+
+function saveData(currentScreen) {
 	var data = document.getElementById('selection').value;
-	fetch('/api/setData/'+currentScreen, {
-		method: 'post',
-		headers: {'Content-Type': 'application/json'}
-	}).then(json).then(function(data) {
-		console.log('success', data);
-	})
-	.catch(function(error) {
-		console.log('failed', error);
-	});
-	loadNextScreen(currentScreen);
+	
 }

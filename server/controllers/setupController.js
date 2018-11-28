@@ -36,15 +36,26 @@ var screen1 = "<p>Choose your life:</p>"
     + "<li id=\"differencesChoice\" >Find out the differences</li>"
     + "</ol>"
     + "<p id=\"selectedOption\" >Which would you like to choose?</p>"
-    + "<form action=\"/api/setData/0\" method=\"POST\">"
+    + "<form action=\"oregonTrail.js\" method=\"POST\">"
     + "<input type = \"text\" id = \"selection\">"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\">"
     + "</form>";
 
 var screen2 = "<p>Enter your wagon leader's name</p>"
+    + "<form action=\"oregonTrail.js\" method=\"POST\">"
+    + "<input type = \"text\" id = \"selection\">"
+    + "</form>";
+
+var screen3 = "<p>Enter the rest of your wagon members' names</p>"
+    + "<form action=\"oregonTrail.js\" method=\"POST\">"
+    + "<input type = \"text\" id = \"member1\"><br />"
+    + "<input type = \"text\" id = \"member2\"><br />"
+    + "<input type = \"text\" id = \"member3\"><br />"
+    + "<input type = \"text\" id = \"member4\"><br />"
+    + "</form>";
     
 exports.setupScreens.push(screen1);
 exports.setupScreens.push(screen2);
+exports.setupScreens.push(screen3);
 
 exports.getSetupScreen = function(req, res) {
     res.setHeader('Content-Type', 'text/html');
