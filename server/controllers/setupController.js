@@ -1,4 +1,3 @@
-var gameData = require('../models/gameData');
 var gameController = require('../controllers/gameController');
 var professions = require('../models/professions');
 
@@ -18,7 +17,6 @@ exports.setProfession = function(req, res) {
     res.setHeader('Content-Type', 'application/json');
     console.log(exports.currentData);
     res.send(exports.currentData.playerProfession + ", " + exports.currentData.playerMoney);
-    //res.send(exports.currentData.playerMoney);
 }
 
 var months = ["March", "April", "May", "June", "July"];
@@ -39,19 +37,19 @@ var screen1 = "<p>Choose your life:</p>"
     + "<li id=\"differencesChoice\" >Find out the differences</li>"
     + "</ol>"
     + "<p id=\"selectedOption\" >Which would you like to choose?</p>"
-    + "<form action=\"oregonTrail.js\" method=\"POST\">"
+    + "<form>"
     + "<input type = \"text\" id = \"selection\">"
     + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
     + "</form>";
 
 var screen2 = "<p>Enter your wagon leader's name</p>"
-    + "<form action=\"oregonTrail.js\" method=\"POST\">"
+    + "<form>"
     + "<input type = \"text\" id = \"selection\">"
     + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
     + "</form>";
 
 var screen3 = "<p>Enter the rest of your wagon members' names</p>"
-    + "<form action=\"oregonTrail.js\" method=\"POST\">"
+    + "<form>"
     + "<input type = \"text\" id = \"member1\"><br />"
     + "<input type = \"text\" id = \"member2\"><br />"
     + "<input type = \"text\" id = \"member3\"><br />"
@@ -59,7 +57,29 @@ var screen3 = "<p>Enter the rest of your wagon members' names</p>"
     + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
     + "</form>";
     
-var screen4 = "<p>donezo</p>"
+var screen4 = "<p>Select your start month</p>"
+    + "<ol id=\"months\">"
+    + "<li id=\"march\">March</li>"
+    + "<li id=\"april\">April</li>"
+    + "<li id=\"may\">May</li>"
+    + "<li id=\"june\">June</li>"
+    + "</ol>"
+    + "<form>"
+    + "<input type = \"text\" id = \"selection\">"
+    + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
+    + "</form>";
+
+var screen5 = "<p>Congratulations! You're ready to travel the trail!</p>"
+    + "<p>Your selections:</p>"
+    + "<br/ >"
+    + "<p>Profession: " + exports.currentData.playerProfession + "</p><br />"
+    + "<p>Starting money: " + exports.currentData.playerMoney + "</p><br />"
+    + "<p>Caravan leader: " + exports.currentData.playerNames[0] + "</p><br />"
+    + "<p>Member 1: " + exports.currentData.playerNames[1] + "</p><br />"
+    + "<p>Member 2: " + exports.currentData.playerNames[2] + "</p><br />"
+    + "<p>Member 3: " + exports.currentData.playerNames[3] + "</p><br />"
+    + "<p>Member 4: " + exports.currentData.playerNames[4] + "</p><br />"
+    + "<p>Start month: " + exports.currentData.startMonth + "</p><br />"
 
 exports.setupScreens.push(screen1);
 exports.setupScreens.push(screen2);

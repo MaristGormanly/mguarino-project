@@ -1,9 +1,9 @@
-/*document.addEventListener("keypress", function(event) {
+document.addEventListener("keypress", function(event) {
 	if(event.keyCode == 32) {
 		window.location = "mainmenu"
 	}
 })
-*/
+
 var gameContainer = document.getElementById('setupContent');
 getScreen(0);
 var currentScreen = 0;
@@ -70,6 +70,7 @@ document.getElementById('setupContent').addEventListener('click',
 			currentScreen++;
 			getScreen(currentScreen);
 		}
+		
 	}
 );
 
