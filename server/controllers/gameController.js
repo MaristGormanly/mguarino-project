@@ -10,6 +10,10 @@ exports.getGameData = function(req, res) {
     res.send(exports.currentData);
 }
 
+exports.getData = function() {
+    return exports.currentData;
+}
+
 exports.updateGameData = function(req, res) {
     exports.currentData.currentTerrain = terrain.getTerrain();
     exports.currentData.currentWeather = weather.getRandomWeather();
