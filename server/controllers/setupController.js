@@ -6,6 +6,7 @@ exports.currentData = gameController.getData();
 exports.setPlayerNames = function(req, res) {
     exports.currentData.playerNames.push(req.params.names);
     res.setHeader('Content-Type', 'application/json');
+    console.log(exports.currentData);
     res.send(exports.currentData.playerNames);
 }
 
@@ -24,6 +25,7 @@ var months = ["March", "April", "May", "June", "July"];
 exports.setStartMonth = function(req, res) {
     exports.currentData.startMonth = months[req.params.id];
     res.setHeader('Content-Type', 'application/json');
+    console.log(exports.currentData);
     res.send(exports.currentData.startMonth)
 }
 
@@ -65,26 +67,28 @@ var screen4 = "<p>Select your start month</p>"
     + "<li id=\"june\">June</li>"
     + "</ol>"
     + "<form>"
-    + "<input type = \"text\" id = \"selection\">"
+    + "<input type = \"text\" id = \"monthSelection\">"
     + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
     + "</form>";
 
-var screen5 = "<p>Congratulations! You're ready to travel the trail!</p>"
+/*var screen5 = "<p>Congratulations! You're ready to travel the trail!</p>"
     + "<p>Your selections:</p>"
     + "<br/ >"
-    + "<p>Profession: " + exports.currentData.playerProfession + "</p><br />"
-    + "<p>Starting money: " + exports.currentData.playerMoney + "</p><br />"
-    + "<p>Caravan leader: " + exports.currentData.playerNames[0] + "</p><br />"
-    + "<p>Member 1: " + exports.currentData.playerNames[1] + "</p><br />"
-    + "<p>Member 2: " + exports.currentData.playerNames[2] + "</p><br />"
-    + "<p>Member 3: " + exports.currentData.playerNames[3] + "</p><br />"
-    + "<p>Member 4: " + exports.currentData.playerNames[4] + "</p><br />"
-    + "<p>Start month: " + exports.currentData.startMonth + "</p><br />"
+    + "<p>Profession: " + profession + "</p><br />"
+    + "<p>Starting money: " + money + "</p><br />"
+    + "<p>Caravan leader: " + names[0] + "</p><br />"
+    + "<p>Member 1: " + names[1] + "</p><br />"
+    + "<p>Member 2: " + names[2] + "</p><br />"
+    + "<p>Member 3: " + names[3] + "</p><br />"
+    + "<p>Member 4: " + names[4] + "</p><br />"
+    + "<p>Start month: " + month + "</p><br />"
+*/
 
 exports.setupScreens.push(screen1);
 exports.setupScreens.push(screen2);
 exports.setupScreens.push(screen3);
 exports.setupScreens.push(screen4);
+//exports.setupScreens.push(screen5);
 
 exports.getSetupScreen = function(req, res) {
     res.setHeader('Content-Type', 'text/html');
