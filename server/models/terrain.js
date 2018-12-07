@@ -10,7 +10,7 @@ allTerrains.push(new terrain("Forest", "images/forest"));
 allTerrains.push(new terrain("Desert", "images/desert"));
 
 exports.getTerrain = function() {
-    var num = Math.floor(Math.random() * terrain.length);
+    var num = Math.floor(Math.random() * (4 - 0));
     return allTerrains[num];
 }
 

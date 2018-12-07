@@ -2,6 +2,12 @@ document.addEventListener("keydown", function(event) {
 	if(event.keyCode == 32) {
 		updateData();
 	}
+	if(event.keyCode == 27) {
+		window.location = "mainmenu";
+	}
+	if(event.keyCode == 80) {
+		changePace();
+	}
 })
 /*
 var days = document.getElementById('days');
@@ -32,6 +38,47 @@ function updateData() {
 			displayData(gameInfo);
 		})
 	})
+	deathCheck(gameInfo);
+}
+
+function resetGame() {
+	
+}
+
+function deathCheck(info) {
+	var messageBox = document.getElementById('messageBox');
+	if(info.groupHealth <= 0) {
+		//alert("u ded haha");
+		messageBox.style.visibility = "visible";
+	}
+}
+
+function changePace() {
+	var paceName = prompt("What would you like to change the pace to? (Steady, Strenuous, Grueling, Resting)");
+	if(!(paceName == "Steady" || paceName == "Strenuous" || paceName == "Grueling" || paceName == "Resting")) {
+		alert("Incorrect input.");
+	} else {
+		if(paceName == "Steady") {
+			paceId = 0;
+		} else if(paceName == "Strenuous") {
+			paceId = 1;
+		} else if(paceName == "Grueling") {
+			paceId = 2;
+		} else if(paceName == "Resting") {
+			paceId = 3;
+		}
+		fetch('/api/setPace/'+paceId, {
+			method: 'post',
+			headers: {'Content-Type': 'application/json, charset=UTF-8'},
+			body: '{"data": "' + paceId + '"}'
+		}).then(function(res) {
+			if(res.status !== 200)
+			 console.log('problem with ajax call! ' + res.status + " msg: " + res.value);
+			return;
+		});
+		console.log("pace " + paceName + " saved");
+		document.getElementById('pace').innerHTML = paceName;
+	}
 }
 
 function displayData(info) {
@@ -52,4 +99,5 @@ function displayData(info) {
 	} else if(info.currentTerrain.name == "Desert") {
 		document.getElementById('background').style.backgroundImage = 'url(/images/desert.png)';
 	}
+	document.getElementById('message').innerHTML = info.messages;
 }

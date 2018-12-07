@@ -41,10 +41,10 @@ var screen1 = "<p>Choose your life:</p>"
     + "<p id=\"selectedOption\" >Which would you like to choose?</p>"
     + "<form>"
     + "<input type = \"text\" id = \"selection\">"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
+    + "<input type = \"button\" id = \"submit\" value = \"Submit\"  />"
     + "</form>";
 
-var screen2 = "<p>Enter your wagon leader's name</p>"
+var screen2 = "<p>Enter your wagon leader's name:</p>"
     + "<form>"
     + "<input type = \"text\" id = \"selection\">"
     + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"

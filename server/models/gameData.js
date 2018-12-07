@@ -14,7 +14,7 @@ function gameData(inNames, inStatus, inProfession, inMoney, inMonth, inTraveled,
     this.daysOnTrail = 0;
     this.currentWeather = weather.getRandomWeather();
     this.currentTerrain = terrain.getTerrain();
-    this.messages = "ass";
+    this.messages = "Your journey begins...";
 }
 
 exports.getData = function() {

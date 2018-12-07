@@ -23,4 +23,8 @@ h2 {
 
 p {
 	color: white;
+	font-size: 16pt;
+}
+input {
+	padding: 5px;
 }
