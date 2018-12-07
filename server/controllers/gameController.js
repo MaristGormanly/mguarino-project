@@ -78,5 +78,6 @@ exports.setPace = function(req, res) {
 exports.resetGameData = function(req, res) {
     exports.currentData = gameData.getData();
     res.setHeader('Content-Type', 'application/json');
+    console.log(exports.currentData);
     res.send(exports.currentData);
 }

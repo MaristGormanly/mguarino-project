@@ -4,8 +4,8 @@ document.addEventListener("keydown", function(event) {
 	}
 })
 
-//playerList.sort((a,b) => b.score - a.score).forEach((Player, ind) => {
-//	$("#list").append(`${ind + 1}) ${Object.values(Player).join(" | ")} <br />`);
-//})
+playerList.sort((a,b) => b.score - a.score).forEach((Player, ind) => {
+	$("#list").append(`${ind + 1}) ${Object.values(Player).join(" | ")} <br />`);
+})
 
 

@@ -31,7 +31,7 @@ app.route('/api/update')
 	.get(gameData.updateGameData);
 
 app.route('/api/reset')
-	.get(gameData.resetGameData);
+	.get(gameData.resetGameData)
 
 app.route('/api/setPace/:id')
 	.post(gameData.setPace);

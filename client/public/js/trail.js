@@ -42,7 +42,13 @@ function updateData() {
 }
 
 function resetGame() {
-	
+	fetch('/api/reset').then(function(res) {
+		res.text().then(function(data) {
+			gameInfo = JSON.parse(data);
+			displayData(gameInfo);
+			console.log(gameInfo);
+		})
+	});
 }
 
 function deathCheck(info) {
@@ -50,6 +56,16 @@ function deathCheck(info) {
 	if(info.groupHealth <= 0) {
 		//alert("u ded haha");
 		messageBox.style.visibility = "visible";
+		document.addEventListener("keydown", function(e) {
+			if(e.keyCode == 49) {
+				resetGame();
+				window.location = "setup";
+			}
+			if(e.keyCode == 50) {
+				resetGame();
+				window.location = "mainmenu";
+			}
+		})
 	}
 }
 
