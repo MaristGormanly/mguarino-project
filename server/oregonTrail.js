@@ -8,6 +8,9 @@ var topTen = require('./controllers/topTenController');
 app.route('/api/topTen')
 	.get(topTen.getCurrentScores);
 
+//app.route('api/topTen/addScore')
+//	.post(topTen.addScore);
+
 var setup = require('./controllers/setupController');
 
 app.route('/api/setProfession/:id')

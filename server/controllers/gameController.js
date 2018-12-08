@@ -22,6 +22,7 @@ exports.updateGameData = function(req, res) {
     exports.currentData.milesTraveled += Math.floor(exports.currentData.currentPace.miles * exports.currentData.currentWeather.miles);
     exports.currentData.groupHealth += exports.currentData.currentWeather.health;
     exports.currentData.groupHealth += exports.currentData.currentPace.health;
+    exports.currentData.groupHealth = 100;
     if(exports.currentData.daysOnTrail >= 45) {
         exports.currentData.messages = "ya took too long and now yer ded";
         exports.currentData.groupHealth = 0;
@@ -81,3 +82,4 @@ exports.resetGameData = function(req, res) {
     console.log(exports.currentData);
     res.send(exports.currentData);
 }
+

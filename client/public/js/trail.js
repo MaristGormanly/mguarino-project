@@ -2,9 +2,6 @@ document.addEventListener("keydown", function(event) {
 	if(event.keyCode == 32) {
 		updateData();
 	}
-	if(event.keyCode == 27) {
-		window.location = "mainmenu";
-	}
 	if(event.keyCode == 80) {
 		changePace();
 	}
@@ -32,17 +29,18 @@ function loadData() {
 
 function updateData() {
 	fetch('/api/update').then(function(res) {
-		res.text().then(function(data) {
+		return res.text().then(function(data) {
 			gameInfo = JSON.parse(data);
 			console.log(gameInfo);
 			displayData(gameInfo);
 		})
+	}).then(function() {
+		return deathCheck(gameInfo);
 	})
-	deathCheck(gameInfo);
 }
 
 function resetGame() {
-	fetch('/api/reset').then(function(res) {
+	return fetch('/api/reset').then(function(res) {
 		res.text().then(function(data) {
 			gameInfo = JSON.parse(data);
 			displayData(gameInfo);
@@ -52,18 +50,35 @@ function resetGame() {
 }
 
 function deathCheck(info) {
-	var messageBox = document.getElementById('messageBox');
-	if(info.groupHealth <= 0) {
+	var deathBox = document.getElementById('deathBox');
+	if(info.groupHealth <= 0 || info.daysOnTrail >= 45) {
 		//alert("u ded haha");
-		messageBox.style.visibility = "visible";
+		deathBox.style.visibility = "visible";
 		document.addEventListener("keydown", function(e) {
 			if(e.keyCode == 49) {
 				resetGame();
-				window.location = "setup";
+				deathBox.style.visibility = "hidden";
 			}
-			if(e.keyCode == 50) {
-				resetGame();
-				window.location = "mainmenu";
+			else if(e.keyCode == 50) {
+				resetGame().then(function() {
+					window.location = "mainmenu"
+				})
+			}
+		})
+	} else {
+		winCheck(info);
+	}
+}
+
+function winCheck(info) {
+	var winBox = document.getElementById('winBox');
+	if(info.milesTraveled >= 500) {
+		winBox.style.visibility = "visible";
+		document.addEventListener("keydown", function(e) {
+			if(e.keyCode == 13) {
+				resetGame().then(function() {
+					window.location = "mainmenu";
+				})
 			}
 		})
 	}
@@ -99,13 +114,21 @@ function changePace() {
 
 function displayData(info) {
 	document.getElementById('days').innerHTML = info.daysOnTrail;
-	console.log("yernk");
 	document.getElementById('miles').innerHTML = info.milesTraveled;
 	document.getElementById('health').innerHTML = info.groupHealth;
 	document.getElementById('weather').innerHTML = info.currentWeather.type;
 	document.getElementById('pace').innerHTML = info.currentPace.name;
 	document.getElementById('terrain').innerHTML = info.currentTerrain.name;
-	document.getElementById('memberStatus').innerHTML = info.playerStatus;
+	document.getElementById('memberStatus').innerHTML = (function() {
+		let aliveCount = 0
+		for (let i = 0; i < info.playerStatus.length;i++) {
+			if (info.playerStatus[i] == false) {
+				aliveCount++
+			}
+		}
+		console.log(info.playerStatus + " " + aliveCount);
+		return aliveCount;
+	})()
 	if(info.currentTerrain.name == "Plains") {
 		document.getElementById('background').style.backgroundImage = 'url(/images/plains.png)';
 	} else if(info.currentTerrain.name == "Mountains") {
