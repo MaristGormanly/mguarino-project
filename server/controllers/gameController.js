@@ -16,13 +16,21 @@ exports.getData = function() {
 
 exports.updateGameData = function(req, res) {
     exports.currentData.currentTerrain = terrain.getTerrain();
-    exports.currentData.currentWeather = weather.getRandomWeather();
+    if(exports.currentData.currentTerrain.name == "Plains") {
+        exports.currentData.currentWeather = weather.getPlainsWeather();
+    } else if(exports.currentData.currentTerrain.name == "Forest") {
+        exports.currentData.currentWeather = weather.getForestWeather();
+    } else if(exports.currentData.currentTerrain.name == "Mountains") {
+        exports.currentData.currentWeather = weather.getMountainWeather();
+    } else if(exports.currentData.currentTerrain.name == "Desert") {
+        exports.currentData.currentWeather = weather.getDesertWeather();
+    }
+    //exports.currentData.currentWeather = weather.getRandomWeather();
     
     exports.currentData.daysOnTrail++;
     exports.currentData.milesTraveled += Math.floor(exports.currentData.currentPace.miles * exports.currentData.currentWeather.miles);
     exports.currentData.groupHealth += exports.currentData.currentWeather.health;
     exports.currentData.groupHealth += exports.currentData.currentPace.health;
-    exports.currentData.groupHealth = 100;
     if(exports.currentData.daysOnTrail >= 45) {
         exports.currentData.messages = "ya took too long and now yer ded";
         exports.currentData.groupHealth = 0;

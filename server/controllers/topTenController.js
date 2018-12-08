@@ -1,6 +1,7 @@
 var topTen = require('../models/topTen')
 var mysql = require('mysql');
 
+/*
 var con = mysql.createConnection({
     host: "localhost",
     user: "ttUser",
@@ -11,7 +12,7 @@ con.connect(function(err) {
     if(err) throw err;
     console.log("Connected!");
 })
-
+*/
 exports.currentTopScores = [];
 /*
 exports.currentTopScores.push(topTen.addScore("mike", 999999, "6/12/15"));

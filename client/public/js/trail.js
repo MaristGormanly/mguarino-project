@@ -115,6 +115,9 @@ function changePace() {
 function displayData(info) {
 	document.getElementById('days').innerHTML = info.daysOnTrail;
 	document.getElementById('miles').innerHTML = info.milesTraveled;
+	var percent = ((info.milesTraveled / 500) * 100) - 4;
+	console.log(percent);
+	document.getElementById('wagon').style.right = percent +"%";
 	document.getElementById('health').innerHTML = info.groupHealth;
 	document.getElementById('weather').innerHTML = info.currentWeather.type;
 	document.getElementById('pace').innerHTML = info.currentPace.name;

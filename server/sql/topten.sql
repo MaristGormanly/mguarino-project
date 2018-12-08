@@ -10,3 +10,4 @@ insert into topTen (playerName, playerScore, dateEarned) values ('Chris', 700, '
 
 create user 'ttUser'@'localhost' identified by '12345';
 grant all on otTopTen.topTen to 'ttUser'@'localHost';
+ALTER USER 'ttUser'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345';
